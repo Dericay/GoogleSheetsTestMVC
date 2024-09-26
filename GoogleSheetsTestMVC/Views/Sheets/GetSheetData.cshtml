@@ -1,0 +1,36 @@
+﻿@model IList<IList<object>>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Sheet Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Google Sheets Data</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    @foreach (var header in Model[0])
+                    {
+                        <th>@header</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 1; i < Model.Count; i++)
+                {
+                    <tr>
+                        @foreach (var cell in Model[i])
+                        {
+                            <td>@cell</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
